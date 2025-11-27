@@ -1,8 +1,11 @@
 package cz.czechitas.java2webapps.lekce10.repository;
 
 import cz.czechitas.java2webapps.lekce10.entity.Student;
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  *
@@ -10,4 +13,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Integer> {
     int countByTrida_Id(int trida);
+
+    List<Student> findByOrderByPrijmeniAscJmenoAsc();
 }
